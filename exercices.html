@@ -390,6 +390,27 @@
                                 Créer une nouvelle série
                             </button>
                         </div>
+                        
+                        <!-- Send to Student Section -->
+                        <div class="p-6 border-t border-gray-200">
+                            <h4 class="text-md font-semibold text-gray-800 mb-3">Communication avec l'élève</h4>
+                            <button onclick="EduTrackAI.showNotification('Exercices envoyés à Lucas via ENT', 'success')" class="bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors flex items-center justify-center w-full">
+                                <i data-feather="send" class="w-5 h-5 mr-2"></i>
+                                Envoyer à l'élève (via ENT ou e-mail)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Student Feedback -->
+                    <div class="mt-6 p-4 bg-green-50 border border-green-200 rounded-md text-sm text-green-800">
+                        <div class="flex items-start">
+                            <i data-feather="mail" class="w-4 h-4 text-green-600 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-semibold mb-2">📬 Dernier retour de l'élève</h4>
+                                <p class="mb-1">Lucas a complété <strong>3 exercices sur 4</strong>. Score global : <strong>6/8</strong></p>
+                                <p class="text-xs text-green-600"><em>Dernière tentative : 29 juin 2025 à 19h03</em></p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Pedagogical Advice -->
@@ -410,6 +431,18 @@
                         </div>
                         <div class="mt-2 text-xs text-gray-500">
                             Niveau adapté : 3ème | Ciblage : 78% de réussite prévue | Temps estimé : 25 minutes
+                        </div>
+                    </div>
+
+                    <!-- Next Exercise Generation -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 mt-6">
+                        <div class="p-6 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Continuer l'apprentissage</h3>
+                            <p class="text-gray-600 mb-4">L'IA peut générer de nouveaux exercices selon l'évolution de l'élève</p>
+                            <button onclick="EduTrackAI.showNotification('Nouvel exercice généré pour le thème : accords au féminin pluriel', 'success')" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center mx-auto">
+                                <i data-feather="arrow-right-circle" class="w-5 h-5 mr-2"></i>
+                                Générer un nouvel exercice ciblé
+                            </button>
                         </div>
                     </div>
                 </div>

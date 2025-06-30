@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuille de route - EduTrack AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Sidebar -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="hidden md:flex md:w-64 md:flex-col">
+            <div class="flex flex-col flex-grow pt-5 bg-white border-r border-gray-200 shadow-sm">
+                <!-- Logo -->
+                <div class="flex items-center flex-shrink-0 px-6">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-lg font-semibold text-gray-800">EduTrack AI</span>
+                </div>
+                
+                <!-- User Info -->
+                <div class="px-6 mt-6">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i data-feather="user" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-800">M. Lefèvre</p>
+                            <p class="text-xs text-gray-500">Professeur de Français</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="mt-8 flex-1">
+                    <div class="px-3 space-y-1">
+                        <a href="dashboard.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="layout" class="mr-3 w-5 h-5"></i>
+                            Tableau de bord
+                        </a>
+                        <a href="upload.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="upload" class="mr-3 w-5 h-5"></i>
+                            Analyser une copie
+                        </a>
+                        <a href="rapport.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="file-text" class="mr-3 w-5 h-5"></i>
+                            Rapports
+                        </a>
+                        <a href="fiches.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="bookmark" class="mr-3 w-5 h-5"></i>
+                            Fiches de révision
+                        </a>
+                        <a href="exercices.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="edit-3" class="mr-3 w-5 h-5"></i>
+                            Exercices générés
+                        </a>
+                        <a href="parents.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="mail" class="mr-3 w-5 h-5"></i>
+                            Rapports parents
+                        </a>
+                        <a href="roadmap.html" class="bg-blue-50 text-blue-700 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="map" class="mr-3 w-5 h-5"></i>
+                            Roadmap
+                        </a>
+                        <a href="index.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="home" class="mr-3 w-5 h-5"></i>
+                            Retour accueil
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
+                <div class="px-6 py-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-bold mb-2">Feuille de route – EduTrack AI</h1>
+                            <p class="text-blue-100 text-lg">L'intelligence artificielle au service de l'éducation, pas à sa place</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button onclick="EduTrackAI.showNotification('Contact envoyé à l&apos;équipe EduTrack AI', 'success')" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center">
+                                <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                                Nous contacter
+                            </button>
+                            <a href="dashboard.html" class="text-blue-100 hover:text-white">
+                                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="p-6">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Vision Section -->
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-sm border border-blue-200 mb-8">
+                        <div class="p-8">
+                            <div class="text-center mb-8">
+                                <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-feather="target" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-800 mb-4">Notre Vision</h2>
+                            </div>
+                            
+                            <div class="prose prose-lg max-w-4xl mx-auto text-center">
+                                <p class="text-gray-700 leading-relaxed text-xl mb-6">
+                                    <strong>EduTrack AI</strong> vise à offrir à chaque professeur un <strong>assistant intelligent</strong> capable d'analyser, suivre, accompagner et personnaliser l'enseignement.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed text-xl mb-6">
+                                    Notre objectif : un apprentissage <strong class="text-blue-600">plus humain</strong>, <strong class="text-green-600">plus juste</strong>, <strong class="text-purple-600">plus efficace</strong>.
+                                </p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Nous croyons que l'intelligence artificielle doit <em>augmenter</em> les capacités pédagogiques des enseignants, non les remplacer. EduTrack AI est conçu pour que chaque élève bénéficie d'un suivi individualisé, tout en préservant l'humanité essentielle de l'acte d'enseigner.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Timeline -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Feuille de route de développement</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Phase 1 -->
+                            <div class="relative">
+                                <div class="flex items-start">
+                                    <!-- Timeline dot -->
+                                    <div class="flex-shrink-0 w-4 h-4 bg-green-500 rounded-full mt-6 mr-6 relative z-10">
+                                        <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
+                                    </div>
+                                    
+                                    <!-- Phase content -->
+                                    <div class="flex-1 bg-white rounded-xl shadow-sm border border-green-200 overflow-hidden">
+                                        <div class="bg-green-50 px-6 py-4 border-b border-green-200">
+                                            <div class="flex items-center justify-between">
+                                                <h3 class="text-xl font-bold text-green-800">Phase 1 – Prototype fonctionnel</h3>
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                                    ✅ Terminée
+                                                </span>
+                                            </div>
+                                            <p class="text-green-600 mt-1">Q1-Q2 2025 • Validation du concept</p>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="grid md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">✅ Fonctionnalités livrées</h4>
+                                                    <ul class="space-y-2 text-sm text-gray-600">
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Dashboard professeur intuitif
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Analyse IA des copies manuscrites
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Génération automatique de fiches de révision
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Exercices personnalisés selon les difficultés
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Rapports automatisés pour les parents
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                                                            Interface responsive & sécurisée
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">🎯 Résultats obtenus</h4>
+                                                    <div class="space-y-3">
+                                                        <div class="bg-green-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-green-800">Validation technique</p>
+                                                            <p class="text-xs text-green-600">IA fonctionnelle, précision 92%</p>
+                                                        </div>
+                                                        <div class="bg-blue-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-blue-800">Prototype complet</p>
+                                                            <p class="text-xs text-blue-600">Workflow end-to-end démontrable</p>
+                                                        </div>
+                                                        <div class="bg-purple-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-purple-800">Retours positifs</p>
+                                                            <p class="text-xs text-purple-600">Tests utilisateurs concluants</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vertical line -->
+                                <div class="absolute left-2 top-10 w-0.5 h-full bg-gray-200 -z-10"></div>
+                            </div>
+
+                            <!-- Phase 2 -->
+                            <div class="relative">
+                                <div class="flex items-start">
+                                    <!-- Timeline dot -->
+                                    <div class="flex-shrink-0 w-4 h-4 bg-blue-500 rounded-full mt-6 mr-6 relative z-10"></div>
+                                    
+                                    <!-- Phase content -->
+                                    <div class="flex-1 bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden">
+                                        <div class="bg-blue-50 px-6 py-4 border-b border-blue-200">
+                                            <div class="flex items-center justify-between">
+                                                <h3 class="text-xl font-bold text-blue-800">Phase 2 – Développement technique</h3>
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                                    🚀 En cours
+                                                </span>
+                                            </div>
+                                            <p class="text-blue-600 mt-1">Q3-Q4 2025 • Industrialisation et intégrations</p>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="grid md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">🔧 Développements prévus</h4>
+                                                    <ul class="space-y-2 text-sm text-gray-600">
+                                                        <li class="flex items-center">
+                                                            <i data-feather="link" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            Connexion native avec Pronote & ENT
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="globe" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            OCR manuscrit multilingue avancé
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="smartphone" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            Application mobile (PWA)
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="trending-up" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            Statistiques prédictives avancées
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="wifi-off" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            Mode hors-ligne pour zones rurales
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="layers" class="w-4 h-4 text-blue-500 mr-2"></i>
+                                                            Architecture cloud scalable
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">💰 Financement recherché</h4>
+                                                    <div class="space-y-3">
+                                                        <div class="bg-yellow-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-yellow-800">800K€ - Développement</p>
+                                                            <p class="text-xs text-yellow-600">Équipe technique, infrastructure cloud</p>
+                                                        </div>
+                                                        <div class="bg-green-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-green-800">200K€ - Intégrations</p>
+                                                            <p class="text-xs text-green-600">APIs ENT, partenariats éditeurs</p>
+                                                        </div>
+                                                        <div class="bg-purple-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-purple-800">150K€ - R&D IA</p>
+                                                            <p class="text-xs text-purple-600">Modèles spécialisés, optimisation</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vertical line -->
+                                <div class="absolute left-2 top-10 w-0.5 h-full bg-gray-200 -z-10"></div>
+                            </div>
+
+                            <!-- Phase 3 -->
+                            <div class="relative">
+                                <div class="flex items-start">
+                                    <!-- Timeline dot -->
+                                    <div class="flex-shrink-0 w-4 h-4 bg-purple-500 rounded-full mt-6 mr-6 relative z-10"></div>
+                                    
+                                    <!-- Phase content -->
+                                    <div class="flex-1 bg-white rounded-xl shadow-sm border border-purple-200 overflow-hidden">
+                                        <div class="bg-purple-50 px-6 py-4 border-b border-purple-200">
+                                            <div class="flex items-center justify-between">
+                                                <h3 class="text-xl font-bold text-purple-800">Phase 3 – Lancement pilote</h3>
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                                                    📋 Planifiée
+                                                </span>
+                                            </div>
+                                            <p class="text-purple-600 mt-1">2026 • Déploiement contrôlé et validation marché</p>
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="grid md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">🎓 Déploiement pilote</h4>
+                                                    <ul class="space-y-2 text-sm text-gray-600">
+                                                        <li class="flex items-center">
+                                                            <i data-feather="school" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Tests dans 5 collèges & 3 lycées
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="award" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Partenariats avec 2 rectorats pilotes
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="shield" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Certification RGPD complète
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="users" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Adaptation aux professeurs particuliers
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="book" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Extension aux autres matières
+                                                        </li>
+                                                        <li class="flex items-center">
+                                                            <i data-feather="globe" class="w-4 h-4 text-purple-500 mr-2"></i>
+                                                            Préparation export international
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-800 mb-3">📊 Objectifs mesurables</h4>
+                                                    <div class="space-y-3">
+                                                        <div class="bg-blue-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-blue-800">500 professeurs utilisateurs</p>
+                                                            <p class="text-xs text-blue-600">Across pilot schools & private tutors</p>
+                                                        </div>
+                                                        <div class="bg-green-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-green-800">25% gain de temps enseignant</p>
+                                                            <p class="text-xs text-green-600">Mesure objective d'efficacité</p>
+                                                        </div>
+                                                        <div class="bg-yellow-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-yellow-800">15% progression élèves</p>
+                                                            <p class="text-xs text-yellow-600">Impact pédagogique démontré</p>
+                                                        </div>
+                                                        <div class="bg-red-50 p-3 rounded-lg">
+                                                            <p class="text-sm font-medium text-red-800">95% satisfaction utilisateurs</p>
+                                                            <p class="text-xs text-red-600">NPS élevé requis pour la suite</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Section -->
+                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl shadow-lg border border-yellow-200 mb-8">
+                        <div class="p-8">
+                            <div class="text-center mb-8">
+                                <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-feather="handshake" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-800 mb-4">Participez à l'aventure</h2>
+                                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                                    Vous êtes <strong>investisseur</strong>, <strong>incubateur EdTech</strong>, <strong>rectorat</strong> ou <strong>professeur pilote</strong> ?<br>
+                                    Rejoignez-nous pour faire évoluer l'apprentissage dès aujourd'hui.
+                                </p>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <!-- Investors -->
+                                <div class="bg-white rounded-xl p-6 border border-yellow-200 text-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i data-feather="trending-up" class="w-6 h-6 text-blue-600"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Investisseurs</h3>
+                                    <p class="text-sm text-gray-600 mb-4">Marché EdTech €50Md, croissance +12% annuelle. ROI démontrable.</p>
+                                    <button onclick="EduTrackAI.showNotification('Dossier investisseur en cours d&apos;envoi...', 'info')" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                                        Accéder au dossier investisseur
+                                    </button>
+                                </div>
+
+                                <!-- Education Partners -->
+                                <div class="bg-white rounded-xl p-6 border border-yellow-200 text-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i data-feather="school" class="w-6 h-6 text-green-600"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Établissements</h3>
+                                    <p class="text-sm text-gray-600 mb-4">Collèges, lycées, rectorats. Testez gratuitement en 2025.</p>
+                                    <button onclick="EduTrackAI.showNotification('Demande de partenariat enregistrée', 'success')" class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                                        Proposer une école partenaire
+                                    </button>
+                                </div>
+
+                                <!-- Contact -->
+                                <div class="bg-white rounded-xl p-6 border border-yellow-200 text-center">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i data-feather="mail" class="w-6 h-6 text-purple-600"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Contact</h3>
+                                    <p class="text-sm text-gray-600 mb-4">Questions, suggestions, partenariats. Nous répondons en 24h.</p>
+                                    <button onclick="EduTrackAI.showNotification('Formulaire de contact ouvert', 'info')" class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                                        Nous contacter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team & Technology -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <!-- Technology -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                            <div class="p-6 border-b border-gray-100">
+                                <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                                    <i data-feather="cpu" class="w-5 h-5 mr-2 text-blue-500"></i>
+                                    Technologies utilisées
+                                </h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-2 gap-4 text-sm">
+                                    <div class="space-y-2">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                            <span>IA / Machine Learning</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                            <span>OCR avancée</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                                            <span>NLP (Traitement du langage)</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
+                                            <span>Architecture cloud</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                                            <span>Sécurité RGPD</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
+                                            <span>APIs RESTful</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Impact -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                            <div class="p-6 border-b border-gray-100">
+                                <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                                    <i data-feather="heart" class="w-5 h-5 mr-2 text-red-500"></i>
+                                    Impact social attendu
+                                </h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4 text-sm">
+                                    <div class="flex items-start">
+                                        <i data-feather="users" class="w-4 h-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                                        <div>
+                                            <strong>Équité pédagogique :</strong> Suivi personnalisé pour chaque élève, réduction des inégalités.
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i data-feather="clock" class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                                        <div>
+                                            <strong>Temps enseignant :</strong> Libération du temps pour l'accompagnement humain.
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i data-feather="home" class="w-4 h-4 text-purple-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                                        <div>
+                                            <strong>Lien école-famille :</strong> Communication renforcée et transparente.
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i data-feather="map-pin" class="w-4 h-4 text-yellow-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                                        <div>
+                                            <strong>Territoires ruraux :</strong> Accès à l'innovation pédagogique partout.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+                        <div class="flex items-center justify-center text-sm text-gray-600 mb-2">
+                            <i data-feather="brain" class="w-4 h-4 mr-2"></i>
+                            <span>EduTrack AI - Révolutionner l'éducation avec l'intelligence artificielle</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            Version prototype • Développé avec passion pour l'éducation • Contact : hello@edutrack-ai.fr
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        feather.replace();
+        
+        // Welcome notification
+        setTimeout(function() {
+            EduTrackAI.showNotification('Découvrez la feuille de route EduTrack AI !', 'info');
+        }, 1000);
+    </script>
+</body>
+</html> 

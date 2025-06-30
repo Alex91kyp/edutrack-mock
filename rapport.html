@@ -341,6 +341,28 @@
                                 </div>
                             </div>
 
+                            <!-- Student Progress Chart -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                                        <i data-feather="trending-up" class="w-5 h-5 mr-2"></i>
+                                        Évolution récente
+                                    </h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="chart-container" style="height: 220px;">
+                                        <canvas id="progressChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <div class="text-sm text-gray-600">Progression sur les 3 derniers devoirs</div>
+                                        <div class="flex items-center justify-center mt-2">
+                                            <i data-feather="arrow-up" class="w-4 h-4 text-green-600 mr-1"></i>
+                                            <span class="text-green-600 font-medium text-sm">+3 points</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Quick Stats -->
                             <div class="bg-white rounded-xl shadow-sm border border-gray-100">
                                 <div class="p-6 border-b border-gray-100">
@@ -376,10 +398,15 @@
                                     <h3 class="text-lg font-semibold text-gray-800">Actions recommandées</h3>
                                 </div>
                                 <div class="p-6 space-y-3">
-                                    <button onclick="window.location.href='fiches.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
+                                    <button onclick="showGeneratedSheet()" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
                                         <i data-feather="bookmark" class="w-5 h-5 mr-2"></i>
                                         Générer une fiche de révision
                                     </button>
+                                    
+                                    <!-- Fiche générée simulée -->
+                                    <div id="generated-sheet" class="mt-4 p-4 bg-green-50 text-green-800 rounded-md border border-green-200 text-sm">
+                                        ✅ Fiche générée : <strong>"Conjugaison au passé composé"</strong> – 6 exercices – <a href="#" class="underline hover:text-green-900">Télécharger le PDF</a>
+                                    </div>
                                     
                                     <button onclick="window.location.href='exercices.html'" class="w-full bg-green-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center">
                                         <i data-feather="edit-3" class="w-5 h-5 mr-2"></i>
@@ -395,6 +422,14 @@
                                         <i data-feather="user" class="w-5 h-5 mr-2"></i>
                                         Voir le profil élève
                                     </button>
+                                    
+                                    <!-- Divider -->
+                                    <div class="border-t border-gray-200 pt-3 mt-4">
+                                        <button onclick='EduTrackAI.showNotification("Nouvelle analyse lancée...", "info")' class="w-full bg-orange-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors flex items-center justify-center">
+                                            <i data-feather="refresh-cw" class="w-5 h-5 mr-2"></i>
+                                            Recommencer une analyse
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -454,6 +489,81 @@
                 cutout: '60%'
             }
         });
+
+        // Initialize Student Progress Chart
+        const progressCtx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(progressCtx, {
+            type: 'line',
+            data: {
+                labels: ['Dictée\n(Mars)', 'Conjugaison\n(Avril)', 'Rédaction\n(Avril)'],
+                datasets: [{
+                    label: 'Notes (/20)',
+                    data: [12, 13, 14],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#3b82f6',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Note: ' + context.parsed.y + '/20';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20,
+                        ticks: {
+                            stepSize: 5,
+                            callback: function(value) {
+                                return value + '/20';
+                            }
+                        },
+                        grid: {
+                            color: '#f3f4f6'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function to show generated sheet
+        function showGeneratedSheet() {
+            const sheetElement = document.getElementById('generated-sheet');
+            if (sheetElement.style.display === 'none' || !sheetElement.style.display) {
+                sheetElement.style.display = 'block';
+                EduTrackAI.showNotification('Fiche de révision générée avec succès !', 'success');
+            } else {
+                EduTrackAI.showNotification('Nouvelle fiche de révision générée !', 'success');
+                // Animation flash pour indiquer une régénération
+                sheetElement.style.backgroundColor = '#dcfce7';
+                setTimeout(() => {
+                    sheetElement.style.backgroundColor = '#f0fdf4';
+                }, 300);
+            }
+        }
 
         // Mobile sidebar toggle
         document.getElementById('mobile-sidebar-btn')?.addEventListener('click', function() {

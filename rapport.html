@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport d'analyse - EduTrack AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Sidebar -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="hidden md:flex md:w-64 md:flex-col">
+            <div class="flex flex-col flex-grow pt-5 bg-white border-r border-gray-200 shadow-sm">
+                <!-- Logo -->
+                <div class="flex items-center flex-shrink-0 px-6">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-lg font-semibold text-gray-800">EduTrack AI</span>
+                </div>
+                
+                <!-- User Info -->
+                <div class="px-6 mt-6">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i data-feather="user" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-800">M. Lefèvre</p>
+                            <p class="text-xs text-gray-500">Professeur de Français</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="mt-8 flex-1">
+                    <div class="px-3 space-y-1">
+                        <a href="dashboard.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="layout" class="mr-3 w-5 h-5"></i>
+                            Tableau de bord
+                        </a>
+                        <a href="eleve.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="users" class="mr-3 w-5 h-5"></i>
+                            Mes élèves
+                        </a>
+                        <a href="upload.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="upload" class="mr-3 w-5 h-5"></i>
+                            Analyser une copie
+                        </a>
+                        <a href="rapport.html" class="bg-blue-50 text-blue-700 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="file-text" class="mr-3 w-5 h-5"></i>
+                            Rapports
+                        </a>
+                        <a href="comparaison.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="bar-chart-2" class="mr-3 w-5 h-5"></i>
+                            Statistiques
+                        </a>
+                        <a href="prevision.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="trending-up" class="mr-3 w-5 h-5"></i>
+                            Prévisions IA
+                        </a>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 px-3">
+                        <div class="space-y-1">
+                            <a href="fiches.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="bookmark" class="mr-3 w-5 h-5"></i>
+                                Fiches de révision
+                            </a>
+                            <a href="exercices.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="edit-3" class="mr-3 w-5 h-5"></i>
+                                Exercices générés
+                            </a>
+                            <a href="parents.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="mail" class="mr-3 w-5 h-5"></i>
+                                Rapports parents
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Section -->
+                    <div class="mt-auto pb-4 px-3">
+                        <div class="space-y-1">
+                            <a href="ethique.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="shield" class="mr-3 w-5 h-5"></i>
+                                Éthique & RGPD
+                            </a>
+                            <a href="roadmap.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="map" class="mr-3 w-5 h-5"></i>
+                                Roadmap
+                            </a>
+                            <a href="index.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                                <i data-feather="home" class="mr-3 w-5 h-5"></i>
+                                Retour accueil
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-800">Rapport d'analyse IA</h1>
+                            <p class="text-gray-600">Analyse automatique générée le 15 avril 2025 à 14h32</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button onclick='EduTrackAI.showNotification("Export PDF en cours...", "info")' class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="download" class="w-5 h-5"></i>
+                            </button>
+                            <button onclick='EduTrackAI.showNotification("Rapport imprimé", "success")' class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="printer" class="w-5 h-5"></i>
+                            </button>
+                            <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                            </a>
+                            <button class="md:hidden text-gray-500" id="mobile-sidebar-btn">
+                                <i data-feather="menu" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="p-6">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Assignment Header -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+                        <div class="p-6">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Rédaction : Mon voyage imaginaire</h2>
+                                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                        <div class="flex items-center">
+                                            <i data-feather="user" class="w-4 h-4 text-gray-500 mr-2"></i>
+                                            <span class="text-gray-600">Élève :</span>
+                                            <span class="ml-1 font-medium text-gray-800">Lucas Dubois (3ème A)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i data-feather="calendar" class="w-4 h-4 text-gray-500 mr-2"></i>
+                                            <span class="text-gray-600">Date de remise :</span>
+                                            <span class="ml-1 font-medium text-gray-800">15 avril 2025</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i data-feather="file-text" class="w-4 h-4 text-gray-500 mr-2"></i>
+                                            <span class="text-gray-600">Type :</span>
+                                            <span class="ml-1 font-medium text-gray-800">Expression écrite</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-6 text-right">
+                                    <div class="text-4xl font-bold text-blue-600">14<span class="text-2xl text-gray-500">/20</span></div>
+                                    <div class="text-sm text-gray-600">Note IA</div>
+                                    <div class="mt-2">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            À améliorer
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Left Column - Analysis Details -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Points Positifs -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-green-800 flex items-center">
+                                        <i data-feather="check-circle" class="w-5 h-5 mr-2"></i>
+                                        Points positifs identifiés par l'IA
+                                    </h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-800">Vocabulaire riche et varié</p>
+                                                <p class="text-sm text-gray-600">L'élève utilise des mots précis et évocateurs comme "scintillant", "majestueux", "mystérieux"</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-800">Structure narrative cohérente</p>
+                                                <p class="text-sm text-gray-600">Introduction, développement et conclusion bien articulés avec des connecteurs logiques</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-800">Créativité et imagination</p>
+                                                <p class="text-sm text-gray-600">Invention originale d'un monde fantastique avec des détails vivants</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-800">Respect de la consigne</p>
+                                                <p class="text-sm text-gray-600">Le thème du voyage imaginaire est bien développé sur la longueur demandée</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Erreurs et Faiblesses -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-red-800 flex items-center">
+                                        <i data-feather="alert-circle" class="w-5 h-5 mr-2"></i>
+                                        Erreurs et points à améliorer (7 détectées)
+                                    </h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="space-y-4">
+                                        <div class="border-l-4 border-red-400 pl-4">
+                                            <h4 class="font-medium text-red-800 mb-2">Conjugaison au passé composé (3 erreurs)</h4>
+                                            <div class="space-y-2 text-sm">
+                                                <div class="bg-red-50 p-3 rounded-lg">
+                                                    <p class="text-gray-700"><span class="line-through text-red-600">"j'ai était"</span> → <span class="text-green-600 font-medium">"j'ai été"</span></p>
+                                                    <p class="text-xs text-gray-500 mt-1">Ligne 3: Accord du participe passé avec l'auxiliaire être</p>
+                                                </div>
+                                                <div class="bg-red-50 p-3 rounded-lg">
+                                                    <p class="text-gray-700"><span class="line-through text-red-600">"nous avons partis"</span> → <span class="text-green-600 font-medium">"nous sommes partis"</span></p>
+                                                    <p class="text-xs text-gray-500 mt-1">Ligne 7: Verbe de mouvement avec l'auxiliaire être</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border-l-4 border-yellow-400 pl-4">
+                                            <h4 class="font-medium text-yellow-800 mb-2">Ponctuation et majuscules (2 erreurs)</h4>
+                                            <div class="space-y-2 text-sm">
+                                                <div class="bg-yellow-50 p-3 rounded-lg">
+                                                    <p class="text-gray-700">Virgule manquante avant "mais" (ligne 12)</p>
+                                                </div>
+                                                <div class="bg-yellow-50 p-3 rounded-lg">
+                                                    <p class="text-gray-700">Majuscule manquante après point d'exclamation (ligne 15)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border-l-4 border-blue-400 pl-4">
+                                            <h4 class="font-medium text-blue-800 mb-2">Accord et grammaire (2 erreurs)</h4>
+                                            <div class="space-y-2 text-sm">
+                                                <div class="bg-blue-50 p-3 rounded-lg">
+                                                    <p class="text-gray-700"><span class="line-through text-red-600">"des montagne"</span> → <span class="text-green-600 font-medium">"des montagnes"</span></p>
+                                                    <p class="text-xs text-gray-500 mt-1">Ligne 9: Accord du nom au pluriel</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Commentaires IA -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-gray-800 flex items-center">
+                                        <i data-feather="message-square" class="w-5 h-5 mr-2"></i>
+                                        Synthèse et recommandations IA
+                                    </h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                                        <div class="flex items-start">
+                                            <i data-feather="brain" class="w-5 h-5 text-blue-600 mt-0.5 mr-3"></i>
+                                            <div class="text-sm text-blue-800">
+                                                <p class="mb-3"><strong>Analyse générale :</strong></p>
+                                                <p class="mb-3">Lucas montre une très bonne capacité narrative et créative. Son imaginaire est riche et il sait structurer ses idées de manière cohérente. Le vocabulaire utilisé témoigne d'un bon niveau de français et d'une curiosité pour les mots.</p>
+                                                
+                                                <p class="mb-3"><strong>Points à travailler en priorité :</strong></p>
+                                                <p class="mb-3">Cependant, Lucas manque encore de rigueur dans l'application des règles grammaticales, particulièrement concernant la conjugaison au passé composé et le choix des auxiliaires. Il serait bénéfique de retravailler ces notions avec des exercices ciblés.</p>
+                                                
+                                                <p><strong>Recommandations pédagogiques :</strong></p>
+                                                <p>Je suggère de proposer à Lucas des exercices de conjugaison spécifiques au passé composé, en insistant sur les verbes de mouvement. Une fiche de révision sur la ponctuation pourrait également l'aider à finaliser ses textes.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                        <div class="flex items-start">
+                                            <i data-feather="target" class="w-5 h-5 text-green-600 mt-0.5 mr-3"></i>
+                                            <div class="text-sm text-green-800">
+                                                <p><strong>Objectif pour le prochain devoir :</strong></p>
+                                                <p>Maintenir la qualité narrative tout en réduisant les erreurs de conjugaison. Cible : moins de 3 erreurs grammaticales pour atteindre 16-17/20.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Charts & Actions -->
+                        <div class="space-y-6">
+                            <!-- Error Distribution Chart -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-gray-800">Répartition des erreurs</h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="chart-container" style="height: 250px;">
+                                        <canvas id="errorChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 space-y-2 text-sm">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                                <span>Conjugaison</span>
+                                            </div>
+                                            <span class="font-medium">43%</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                                <span>Ponctuation</span>
+                                            </div>
+                                            <span class="font-medium">29%</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                                                <span>Accord</span>
+                                            </div>
+                                            <span class="font-medium">28%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-gray-800">Statistiques</h3>
+                                </div>
+                                <div class="p-6 space-y-4">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-600">Mots analysés</span>
+                                        <span class="font-semibold">342</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-600">Phrases</span>
+                                        <span class="font-semibold">28</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-600">Temps d'analyse</span>
+                                        <span class="font-semibold">2.3s</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-600">Niveau détecté</span>
+                                        <span class="font-semibold text-blue-600">3ème</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-600">Progression</span>
+                                        <span class="font-semibold text-green-600">+1.2 pts</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="p-6 border-b border-gray-100">
+                                    <h3 class="text-lg font-semibold text-gray-800">Actions recommandées</h3>
+                                </div>
+                                <div class="p-6 space-y-3">
+                                    <button onclick="window.location.href='fiches.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
+                                        <i data-feather="bookmark" class="w-5 h-5 mr-2"></i>
+                                        Générer une fiche de révision
+                                    </button>
+                                    
+                                    <button onclick="window.location.href='exercices.html'" class="w-full bg-green-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center">
+                                        <i data-feather="edit-3" class="w-5 h-5 mr-2"></i>
+                                        Créer des exercices ciblés
+                                    </button>
+                                    
+                                    <button onclick="window.location.href='parents.html'" class="w-full bg-purple-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center justify-center">
+                                        <i data-feather="mail" class="w-5 h-5 mr-2"></i>
+                                        Envoyer aux parents
+                                    </button>
+                                    
+                                    <button onclick="window.location.href='eleve.html'" class="w-full bg-white text-gray-700 px-4 py-3 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 transition-colors flex items-center justify-center">
+                                        <i data-feather="user" class="w-5 h-5 mr-2"></i>
+                                        Voir le profil élève
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Privacy Notice -->
+                            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-start">
+                                    <i data-feather="shield" class="w-4 h-4 text-gray-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                    <div class="text-xs text-gray-600">
+                                        <strong>Confidentialité :</strong> Cette analyse est privée et ne sera jamais transmise sans votre consentement explicite. Les données sont chiffrées et conformes RGPD.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Initialize Error Distribution Chart
+        const ctx = document.getElementById('errorChart').getContext('2d');
+        const errorChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Conjugaison', 'Ponctuation', 'Accord'],
+                datasets: [{
+                    data: [43, 29, 28],
+                    backgroundColor: [
+                        '#ef4444', // red-500
+                        '#eab308', // yellow-500
+                        '#3b82f6'  // blue-500
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed + '%';
+                            }
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        // Mobile sidebar toggle
+        document.getElementById('mobile-sidebar-btn')?.addEventListener('click', function() {
+            EduTrackAI.showNotification('Menu mobile activé', 'info');
+        });
+
+        // Simulate notification for completed analysis
+        setTimeout(() => {
+            EduTrackAI.showNotification('Analyse terminée. 7 erreurs détectées avec suggestions d\'amélioration.', 'success');
+        }, 1000);
+    </script>
+</body>
+</html> 

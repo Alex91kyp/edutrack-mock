@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack AI - L'IA au service des professeurs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i data-feather="brain" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">EduTrack AI</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-gray-600 hover:text-blue-600 transition-colors">Tableau de bord</a>
+                    <a href="upload.html" class="text-gray-600 hover:text-blue-600 transition-colors">Analyser une copie</a>
+                    <a href="ethique.html" class="text-gray-600 hover:text-blue-600 transition-colors">Éthique & RGPD</a>
+                    <a href="roadmap.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Roadmap</a>
+                </div>
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden mt-4 pb-4 border-t border-gray-100 hidden" id="mobile-menu">
+                <div class="space-y-3 pt-4">
+                    <a href="dashboard.html" class="block text-gray-600 hover:text-blue-600">Tableau de bord</a>
+                    <a href="upload.html" class="block text-gray-600 hover:text-blue-600">Analyser une copie</a>
+                    <a href="ethique.html" class="block text-gray-600 hover:text-blue-600">Éthique & RGPD</a>
+                    <a href="roadmap.html" class="block text-blue-600 font-medium">Roadmap</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                    EduTrack AI
+                    <span class="block text-blue-600">L'IA au service des professeurs</span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                    Révolutionnez votre enseignement avec une intelligence artificielle qui analyse automatiquement 
+                    les copies de vos élèves, suit leur progression et génère des recommandations personnalisées.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="dashboard.html" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+                        Découvrir le produit
+                    </a>
+                    <a href="upload.html" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+                        Tester l'analyse IA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Résumé du projet -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Un assistant IA pour les enseignants</h3>
+                <div class="prose prose-lg mx-auto text-gray-600">
+                    <p class="text-center mb-8">
+                        EduTrack AI transforme la façon dont les professeurs suivent et accompagnent leurs élèves. 
+                        Notre intelligence artificielle analyse automatiquement les copies manuscrites, identifie les lacunes 
+                        et génère des recommandations pédagogiques personnalisées.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="scan" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Analyse automatique</h4>
+                        <p class="text-gray-600">OCR avancé pour lire et analyser les copies manuscrites</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="trending-up" class="w-8 h-8 text-green-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Suivi personnalisé</h4>
+                        <p class="text-gray-600">Progression individuelle et recommandations ciblées</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="file-text" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Rapports automatiques</h4>
+                        <p class="text-gray-600">Fiches de révision et exercices générés par l'IA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités clés -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-gray-800 mb-12 text-center">Découvrez toutes les fonctionnalités</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tableau de bord -->
+                <a href="dashboard.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="layout" class="w-6 h-6 text-blue-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Tableau de bord</h4>
+                    </div>
+                    <p class="text-gray-600">Vue d'ensemble de vos classes, alertes et statistiques</p>
+                </a>
+
+                <!-- Dossier élève -->
+                <a href="eleve.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="user" class="w-6 h-6 text-green-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Dossier élève</h4>
+                    </div>
+                    <p class="text-gray-600">Suivi individuel et historique des progressions</p>
+                </a>
+
+                <!-- Analyse de copies -->
+                <a href="rapport.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="search" class="w-6 h-6 text-purple-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Rapport d'analyse</h4>
+                    </div>
+                    <p class="text-gray-600">Analyse détaillée par l'IA des copies corrigées</p>
+                </a>
+
+                <!-- Fiches de révision -->
+                <a href="fiches.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="bookmark" class="w-6 h-6 text-orange-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Fiches de révision</h4>
+                    </div>
+                    <p class="text-gray-600">Fiches personnalisées générées selon les lacunes</p>
+                </a>
+
+                <!-- Exercices ciblés -->
+                <a href="exercices.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="edit-3" class="w-6 h-6 text-red-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Exercices ciblés</h4>
+                    </div>
+                    <p class="text-gray-600">Exercices adaptés aux difficultés de chaque élève</p>
+                </a>
+
+                <!-- Prévisions -->
+                <a href="prevision.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="trending-up" class="w-6 h-6 text-teal-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Prévisions IA</h4>
+                    </div>
+                    <p class="text-gray-600">Prédiction de l'évolution et conseils personnalisés</p>
+                </a>
+            </div>
+
+            <!-- Autres fonctionnalités -->
+            <div class="grid md:grid-cols-3 gap-6 mt-6">
+                <a href="comparaison.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="bar-chart-2" class="w-6 h-6 text-indigo-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Comparaison anonyme</h4>
+                    </div>
+                    <p class="text-gray-600">Statistiques comparatives de la classe</p>
+                </a>
+
+                <a href="parents.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="users" class="w-6 h-6 text-pink-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Rapports parents</h4>
+                    </div>
+                    <p class="text-gray-600">Comptes-rendus simplifiés pour les familles</p>
+                </a>
+
+                <a href="ethique.html" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="shield" class="w-6 h-6 text-gray-600 mr-3"></i>
+                        <h4 class="font-semibold text-gray-800">Éthique & RGPD</h4>
+                    </div>
+                    <p class="text-gray-600">Transparence et protection des données</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold text-white mb-4">Prêt à révolutionner votre enseignement ?</h3>
+            <p class="text-blue-100 text-lg mb-8">Découvrez comment EduTrack AI peut vous faire gagner du temps et améliorer le suivi de vos élèves.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="dashboard.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Voir la démo
+                </a>
+                <a href="roadmap.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    Feuille de route
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-semibold">EduTrack AI</span>
+                </div>
+                <div class="text-sm text-gray-400">
+                    © 2024 EduTrack AI - Maquette de démonstration pour investisseurs
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 

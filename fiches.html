@@ -136,6 +136,11 @@
             <!-- Main Content -->
             <main class="p-6">
                 <div class="max-w-4xl mx-auto">
+                    <!-- Auto-generation Notice -->
+                    <div class="p-3 text-xs text-gray-500 italic mb-4 bg-gray-50 border border-gray-200 rounded-lg">
+                        💡 Cette fiche a été générée automatiquement à partir des erreurs relevées sur la copie de l'élève. Elle est 100% personnalisée selon son profil d'apprentissage.
+                    </div>
+
                     <!-- Fiche Header -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
                         <div class="p-8">
@@ -264,6 +269,22 @@
                         </div>
                     </div>
 
+                    <!-- Feedback Section -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Votre avis nous intéresse</h3>
+                                    <p class="text-gray-600 text-sm">Aidez l'IA à s'améliorer en donnant votre retour sur cette fiche</p>
+                                </div>
+                                <button onclick="EduTrackAI.showNotification('Merci pour votre retour ! EduTrack AI s\\\'améliore grâce à vous.', 'success')" class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center">
+                                    <i data-feather="thumbs-up" class="w-5 h-5 mr-2"></i>
+                                    Donner un retour sur cette fiche
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Actions -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
                         <div class="p-6 border-b border-gray-100">
@@ -306,6 +327,28 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Résultats des fiches précédentes -->
+                            <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-md text-sm text-blue-800">
+                                <h4 class="font-semibold mb-2 flex items-center">
+                                    <i data-feather="bar-chart-2" class="w-4 h-4 mr-2"></i>
+                                    Résultats des fiches précédentes
+                                </h4>
+                                <p class="mb-2">📈 Sur les fiches similaires, <strong>78% des élèves</strong> ont progressé de 1 à 2 points en moyenne.</p>
+                                <p>Ce type de fiche est particulièrement efficace pour les élèves de niveau intermédiaire comme Lucas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Create New Sheet for Another Student -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
+                        <div class="p-6 text-center">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Étendre à d'autres élèves</h3>
+                            <p class="text-gray-600 mb-4">Générez des fiches personnalisées pour tous vos élèves en quelques clics</p>
+                            <button onclick="EduTrackAI.showNotification('Sélection d\\\'élève ouverte. Choisissez un élève pour générer sa fiche.', 'info')" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center mx-auto">
+                                <i data-feather="user-plus" class="w-5 h-5 mr-2"></i>
+                                Créer une fiche pour un autre élève
+                            </button>
                         </div>
                     </div>
 

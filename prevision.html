@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévision de progression - EduTrack AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container { position: relative; height: 400px; }
+    </style>
+</head>
+<body class="bg-gray-50 flex h-screen">
+    <!-- Sidebar -->
+    <div class="hidden md:flex md:w-64 md:flex-col">
+        <div class="flex flex-col flex-grow pt-5 bg-white border-r border-gray-200 shadow-sm">
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0 px-6">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="ml-3 text-lg font-semibold text-gray-800">EduTrack AI</span>
+            </div>
+            
+            <!-- User Info -->
+            <div class="px-6 mt-6">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i data-feather="user" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-800">M. Lefèvre</p>
+                        <p class="text-xs text-gray-500">Professeur de Français</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="mt-8 flex-1">
+                <div class="px-3 space-y-1">
+                    <a href="dashboard.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="layout" class="mr-3 w-5 h-5"></i>
+                        Tableau de bord
+                    </a>
+                    <a href="eleve.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="users" class="mr-3 w-5 h-5"></i>
+                        Mes élèves
+                    </a>
+                    <a href="upload.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="upload" class="mr-3 w-5 h-5"></i>
+                        Analyser une copie
+                    </a>
+                    <a href="rapport.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="file-text" class="mr-3 w-5 h-5"></i>
+                        Rapports
+                    </a>
+                    <a href="comparaison.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="bar-chart-2" class="mr-3 w-5 h-5"></i>
+                        Statistiques
+                    </a>
+                    <a href="prevision.html" class="bg-blue-50 text-blue-700 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="trending-up" class="mr-3 w-5 h-5"></i>
+                        Prévisions IA
+                    </a>
+                </div>
+                
+                <!-- Divider -->
+                <div class="mt-8 pt-6 border-t border-gray-200 px-3">
+                    <div class="space-y-1">
+                        <a href="fiches.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="bookmark" class="mr-3 w-5 h-5"></i>
+                            Fiches de révision
+                        </a>
+                        <a href="exercices.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="edit-3" class="mr-3 w-5 h-5"></i>
+                            Exercices générés
+                        </a>
+                        <a href="parents.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="mail" class="mr-3 w-5 h-5"></i>
+                            Rapports parents
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="mt-auto pb-4 px-3">
+                    <div class="space-y-1">
+                        <a href="ethique.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="shield" class="mr-3 w-5 h-5"></i>
+                            Éthique & RGPD
+                        </a>
+                        <a href="roadmap.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="map" class="mr-3 w-5 h-5"></i>
+                            Roadmap
+                        </a>
+                        <a href="index.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="home" class="mr-3 w-5 h-5"></i>
+                            Retour accueil
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-auto">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Prévision de progression</h1>
+                        <p class="text-gray-600 mt-1">Projection IA pour Lucas Dubois</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <span class="mr-1">📈</span>
+                            Tendance positive
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1">Trimestre 3 – Avril à Juin 2025</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="p-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Student Info -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-lg font-bold mr-4">
+                                LD
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-semibold text-gray-900">Lucas Dubois</h2>
+                                <p class="text-gray-600">Classe de 5e • Analyse prédictive basée sur 6 semaines de données</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <select class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option selected>Lucas Dubois</option>
+                                <option>Sarah Martin</option>
+                                <option>Thomas Caron</option>
+                                <option>Emma Blanchard</option>
+                                <option>Pierre Durand</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prediction Chart -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Projection de progression</h3>
+                            <p class="text-sm text-gray-600">Prévision sur les 12 prochaines semaines</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                <span class="text-sm text-gray-600">Maintien des efforts</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-orange-400 rounded-full mr-2"></div>
+                                <span class="text-sm text-gray-600">Ralentissement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="predictionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- AI Summary -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <i data-feather="cpu" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Synthèse générée par l'IA</h3>
+                            <div class="prose text-gray-700 space-y-3">
+                                <p>
+                                    Si Lucas continue à ce rythme, il pourrait atteindre <strong class="text-green-600">14,5/20</strong> 
+                                    en rédaction d'ici fin juin. Son principal axe d'amélioration reste la conjugaison et l'accord du participe passé.
+                                </p>
+                                <p>
+                                    Un ralentissement de son engagement pourrait le ramener à <strong class="text-orange-600">12,2/20</strong>. 
+                                    Il est recommandé de maintenir la motivation par des objectifs personnalisés et un suivi régulier.
+                                </p>
+                                <div class="mt-4 p-3 bg-white rounded-lg border border-blue-200">
+                                    <p class="text-sm text-blue-800">
+                                        <i data-feather="lightbulb" class="w-4 h-4 inline mr-1"></i>
+                                        <strong>Recommandation :</strong> Consolider les acquis en conjugaison avec 2-3 exercices ciblés par semaine.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Factors -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">Facteurs pris en compte par l'IA</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="calendar" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Fréquence des devoirs</h4>
+                            <p class="text-sm text-gray-600 mb-2">Rendus en temps et en heure</p>
+                            <p class="text-lg font-bold text-green-600">95%</p>
+                        </div>
+
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="target" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Taux de réussite</h4>
+                            <p class="text-sm text-gray-600 mb-2">Exercices correctement traités</p>
+                            <p class="text-lg font-bold text-blue-600">78%</p>
+                        </div>
+
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="alert-circle" class="w-6 h-6 text-purple-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Types d'erreurs</h4>
+                            <p class="text-sm text-gray-600 mb-2">Patterns identifiés</p>
+                            <p class="text-lg font-bold text-purple-600">Conjugaison</p>
+                        </div>
+
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="clock" class="w-6 h-6 text-orange-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Temps de remédiation</h4>
+                            <p class="text-sm text-gray-600 mb-2">Délai moyen de correction</p>
+                            <p class="text-lg font-bold text-orange-600">3.2 jours</p>
+                        </div>
+
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="activity" class="w-6 h-6 text-indigo-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Engagement observé</h4>
+                            <p class="text-sm text-gray-600 mb-2">6 dernières semaines</p>
+                            <p class="text-lg font-bold text-indigo-600">Élevé</p>
+                        </div>
+
+                        <div class="text-center p-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="trending-up" class="w-6 h-6 text-pink-600"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">Courbe d'apprentissage</h4>
+                            <p class="text-sm text-gray-600 mb-2">Progression récente</p>
+                            <p class="text-lg font-bold text-pink-600">+0.8 pts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">Actions proposées</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button onclick="createPersonalGoal()" class="flex items-center justify-center px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <i data-feather="flag" class="w-5 h-5 mr-2"></i>
+                            Créer un objectif personnel
+                        </button>
+                        <button onclick="planRevisionSheet()" class="flex items-center justify-center px-6 py-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                            <i data-feather="bookmark" class="w-5 h-5 mr-2"></i>
+                            Planifier une fiche de révision
+                        </button>
+                        <button onclick="sendToParents()" class="flex items-center justify-center px-6 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            <i data-feather="send" class="w-5 h-5 mr-2"></i>
+                            Envoyer cette projection aux parents
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GDPR Notice -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                            <i data-feather="info" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Mentions pédagogiques & RGPD</h4>
+                            <div class="text-sm text-gray-600 space-y-2">
+                                <p>
+                                    Ces prévisions sont <strong>indicatives</strong> et destinées à aider l'enseignant dans sa pédagogie. 
+                                    Aucune note n'est attribuée automatiquement par le système.
+                                </p>
+                                <p>
+                                    L'enseignant reste <strong>seul maître</strong> de l'évaluation et de l'accompagnement pédagogique. 
+                                    Ces projections sont des outils d'aide à la décision, non des prescriptions.
+                                </p>
+                                <p>
+                                    Les données utilisées respectent intégralement le RGPD et ne sortent pas du cadre scolaire.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Prediction Chart
+        const predictionCtx = document.getElementById('predictionChart').getContext('2d');
+        new Chart(predictionCtx, {
+            type: 'line',
+            data: {
+                labels: [
+                    'Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4', 'Semaine 5', 'Semaine 6',
+                    'Semaine 7', 'Semaine 8', 'Semaine 9', 'Semaine 10', 'Semaine 11', 'Semaine 12'
+                ],
+                datasets: [{
+                    label: 'Maintien des efforts',
+                    data: [13.2, 13.4, 13.6, 13.8, 14.0, 14.1, 14.2, 14.3, 14.4, 14.5, 14.5, 14.5],
+                    borderColor: 'rgb(34, 197, 94)',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    pointBackgroundColor: 'rgb(34, 197, 94)',
+                    pointBorderColor: 'rgb(34, 197, 94)',
+                    pointHoverBackgroundColor: 'rgb(34, 197, 94)',
+                    pointHoverBorderColor: 'rgb(34, 197, 94)'
+                }, {
+                    label: 'Ralentissement probable',
+                    data: [13.2, 13.3, 13.2, 13.0, 12.8, 12.7, 12.6, 12.5, 12.4, 12.3, 12.2, 12.2],
+                    borderColor: 'rgb(251, 146, 60)',
+                    backgroundColor: 'rgba(251, 146, 60, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    pointBackgroundColor: 'rgb(251, 146, 60)',
+                    pointBorderColor: 'rgb(251, 146, 60)',
+                    pointHoverBackgroundColor: 'rgb(251, 146, 60)',
+                    pointHoverBorderColor: 'rgb(251, 146, 60)',
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '/20';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Progression dans le trimestre'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Score prévu (/20)'
+                        },
+                        min: 10,
+                        max: 16,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
+            }
+        });
+
+        // Functions
+        function createPersonalGoal() {
+            showNotification('Création d\'un objectif personnalisé en cours...', 'info');
+            setTimeout(() => {
+                showNotification('Objectif "Maîtriser la conjugaison" créé pour Lucas ! Échéance : fin mai 2025.', 'success');
+            }, 2000);
+        }
+
+        function planRevisionSheet() {
+            showNotification('Génération d\'une fiche de révision ciblée...', 'info');
+            setTimeout(() => {
+                showNotification('Fiche "Conjugaison et participes passés" planifiée ! Consultez la section Fiches de révision.', 'success');
+            }, 2000);
+        }
+
+        function sendToParents() {
+            showNotification('Préparation du rapport pour les parents...', 'info');
+            setTimeout(() => {
+                showNotification('Projection envoyée aux parents de Lucas avec explications pédagogiques.', 'success');
+            }, 2500);
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+                type === 'success' ? 'bg-green-600 text-white' :
+                type === 'error' ? 'bg-red-600 text-white' :
+                'bg-blue-600 text-white'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i data-feather="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-circle' : 'info'}" class="w-5 h-5 mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            feather.replace();
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html> 

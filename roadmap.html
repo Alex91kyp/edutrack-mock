@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuille de route - EduTrack AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 flex h-screen">
+    <!-- Sidebar -->
+    <div class="hidden md:flex md:w-64 md:flex-col">
+        <div class="flex flex-col flex-grow pt-5 bg-white border-r border-gray-200 shadow-sm">
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0 px-6">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="ml-3 text-lg font-semibold text-gray-800">EduTrack AI</span>
+            </div>
+            
+            <!-- User Info -->
+            <div class="px-6 mt-6">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i data-feather="user" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-800">M. Lefèvre</p>
+                        <p class="text-xs text-gray-500">Professeur de Français</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="mt-8 flex-1">
+                <div class="px-3 space-y-1">
+                    <a href="dashboard.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="layout" class="mr-3 w-5 h-5"></i>
+                        Tableau de bord
+                    </a>
+                    <a href="eleve.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="users" class="mr-3 w-5 h-5"></i>
+                        Mes élèves
+                    </a>
+                    <a href="upload.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="upload" class="mr-3 w-5 h-5"></i>
+                        Analyser une copie
+                    </a>
+                    <a href="rapport.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="file-text" class="mr-3 w-5 h-5"></i>
+                        Rapports
+                    </a>
+                    <a href="comparaison.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="bar-chart-2" class="mr-3 w-5 h-5"></i>
+                        Statistiques
+                    </a>
+                    <a href="prevision.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="trending-up" class="mr-3 w-5 h-5"></i>
+                        Prévisions IA
+                    </a>
+                </div>
+                
+                <!-- Divider -->
+                <div class="mt-8 pt-6 border-t border-gray-200 px-3">
+                    <div class="space-y-1">
+                        <a href="fiches.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="bookmark" class="mr-3 w-5 h-5"></i>
+                            Fiches de révision
+                        </a>
+                        <a href="exercices.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="edit-3" class="mr-3 w-5 h-5"></i>
+                            Exercices générés
+                        </a>
+                        <a href="parents.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="mail" class="mr-3 w-5 h-5"></i>
+                            Rapports parents
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="mt-auto pb-4 px-3">
+                    <div class="space-y-1">
+                        <a href="ethique.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="shield" class="mr-3 w-5 h-5"></i>
+                            Éthique & RGPD
+                        </a>
+                        <a href="roadmap.html" class="bg-blue-50 text-blue-700 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="map" class="mr-3 w-5 h-5"></i>
+                            Roadmap
+                        </a>
+                        <a href="index.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="home" class="mr-3 w-5 h-5"></i>
+                            Retour accueil
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-auto">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Feuille de route</h1>
+                    <p class="text-gray-600 mt-1">Vision et étapes de développement d'EduTrack AI</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="p-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Vision -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 mb-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="compass" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Notre vision pédagogique</h2>
+                        <p class="text-lg text-gray-700 mb-4">
+                            <strong>L'IA au service du professeur, pas à sa place</strong>
+                        </p>
+                        <p class="text-gray-600 max-w-3xl mx-auto">
+                            EduTrack AI est conçu pour amplifier l'expertise pédagogique des enseignants, 
+                            leur faire gagner du temps sur les tâches répétitives et leur permettre de se concentrer 
+                            sur ce qui compte vraiment : l'accompagnement humain de chaque élève.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Plan de développement</h2>
+                    
+                    <!-- Phase 1 -->
+                    <div class="relative">
+                        <div class="flex items-start mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                                    <i data-feather="check" class="w-5 h-5 text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-6 flex-1">
+                                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h3 class="text-lg font-semibold text-gray-900">Phase 1 : Prototype fonctionnel</h3>
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                            Terminé
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">
+                                        Développement de la maquette statique et validation du concept auprès des enseignants
+                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Réalisations :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• Interface utilisateur complète</li>
+                                                <li>• Simulation des fonctionnalités IA</li>
+                                                <li>• Tests utilisateur avec 15 enseignants</li>
+                                                <li>• Validation du besoin marché</li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Résultats :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• 94% d'intérêt des professeurs testeurs</li>
+                                                <li>• Temps de correction estimé : -40%</li>
+                                                <li>• Conformité RGPD validée</li>
+                                                <li>• Modèle économique défini</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="flex items-start mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i data-feather="code" class="w-5 h-5 text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-6 flex-1">
+                                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h3 class="text-lg font-semibold text-gray-900">Phase 2 : Développement technique</h3>
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                            2025
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">
+                                        Développement de l'IA de traitement de texte et intégration avec les ENT existants
+                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Objectifs techniques :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• IA d'analyse linguistique (OCR + NLP)</li>
+                                                <li>• API d'intégration ENT</li>
+                                                <li>• Base de données sécurisée</li>
+                                                <li>• Interface web responsive</li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Partenariats :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• Pronote (négociations en cours)</li>
+                                                <li>• Google Classroom</li>
+                                                <li>• ÉcoleDirecte</li>
+                                                <li>• Moodle (open source)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                                        <p class="text-sm text-blue-800">
+                                            <i data-feather="calendar" class="w-4 h-4 inline mr-1"></i>
+                                            Durée estimée : 18 mois • Budget : 450k€
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="flex items-start mb-8">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                                    <i data-feather="rocket" class="w-5 h-5 text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-6 flex-1">
+                                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h3 class="text-lg font-semibold text-gray-900">Phase 3 : Lancement pilote</h3>
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                                            2026
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">
+                                        Déploiement auprès d'établissements partenaires et commercialisation progressive
+                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Objectifs commerciaux :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• 50 établissements pilotes</li>
+                                                <li>• 500 professeurs utilisateurs</li>
+                                                <li>• 15 000 élèves impactés</li>
+                                                <li>• Retour sur investissement démontré</li>
+                                            </ul>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="font-medium text-gray-900">Métriques de succès :</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1">
+                                                <li>• Temps de correction : -35% minimum</li>
+                                                <li>• Satisfaction professeurs : >85%</li>
+                                                <li>• Progression élèves : +15%</li>
+                                                <li>• Conformité RGPD : 100%</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 p-3 bg-purple-50 rounded-lg">
+                                        <p class="text-sm text-purple-800">
+                                            <i data-feather="target" class="w-4 h-4 inline mr-1"></i>
+                                            Objectif : rentabilité atteinte fin 2026
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline line -->
+                        <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-gray-200"></div>
+                    </div>
+                </div>
+
+                <!-- Financement -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Modèle de financement</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="award" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Subventions publiques</h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                Édu-Up, BPI France, fonds européens pour l'innovation éducative
+                            </p>
+                            <p class="text-lg font-bold text-green-600">200k€</p>
+                        </div>
+
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="handshake" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Co-développement</h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                Partenariats avec éditeurs ENT et établissements scolaires
+                            </p>
+                            <p class="text-lg font-bold text-blue-600">150k€</p>
+                        </div>
+
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i data-feather="trending-up" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Modèle freemium</h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                Version gratuite limitée + abonnements pro pour établissements
+                            </p>
+                            <p class="text-lg font-bold text-purple-600">100k€</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-900 mb-2">Tarification envisagée (post-pilote) :</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+                            <div>
+                                <p>• <strong>Version gratuite :</strong> 20 analyses/mois</p>
+                                <p>• <strong>Professeur individuel :</strong> 15€/mois</p>
+                            </div>
+                            <div>
+                                <p>• <strong>Établissement (forfait) :</strong> 8€/prof/mois</p>
+                                <p>• <strong>Académie (volume) :</strong> sur devis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action -->
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-center text-white">
+                    <h2 class="text-2xl font-bold mb-4">Rejoignez l'aventure EduTrack AI</h2>
+                    <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+                        Que vous soyez investisseur, établissement scolaire ou partenaire technologique, 
+                        nous recherchons des collaborateurs partageant notre vision d'une éducation augmentée par l'IA.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showContact()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                            <i data-feather="mail" class="w-5 h-5 inline mr-2"></i>
+                            Nous contacter
+                        </button>
+                        <button onclick="downloadInvestorDeck()" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400 transition-colors">
+                            <i data-feather="download" class="w-5 h-5 inline mr-2"></i>
+                            Dossier investisseur
+                        </button>
+                        <button onclick="proposePartnership()" class="bg-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-400 transition-colors">
+                            <i data-feather="school" class="w-5 h-5 inline mr-2"></i>
+                            Proposer une école partenaire
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Functions
+        function showContact() {
+            showNotification('Formulaire de contact en cours de développement. Email : contact@edutrack-ai.fr', 'info');
+        }
+
+        function downloadInvestorDeck() {
+            showNotification('Téléchargement du dossier investisseur simulé...', 'info');
+            setTimeout(() => {
+                showNotification('Dossier téléchargé avec succès ! (simulation)', 'success');
+            }, 2000);
+        }
+
+        function proposePartnership() {
+            showNotification('Formulaire de partenariat en cours de développement. Nous contacter directement.', 'info');
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+                type === 'success' ? 'bg-green-600 text-white' :
+                type === 'error' ? 'bg-red-600 text-white' :
+                'bg-blue-600 text-white'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i data-feather="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-circle' : 'info'}" class="w-5 h-5 mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            feather.replace();
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html> 

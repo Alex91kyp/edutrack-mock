@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Dubois - Profil élève - EduTrack AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            EduTrack AI
+                        </h1>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
+                    <a href="dashboard.html" class="text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-blue-600">Tableau de bord</a>
+                    <a href="upload.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Analyser</a>
+                    <a href="ethique.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Éthique</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-900">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                <a href="dashboard.html" class="text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Tableau de bord</a>
+                <a href="upload.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Analyser</a>
+                <a href="ethique.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Éthique</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen pt-16">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg fixed left-0 top-16 h-full overflow-y-auto">
+            <div class="p-6">
+                <!-- Profil utilisateur -->
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+                        ML
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">M. Lefèvre</p>
+                        <p class="text-xs text-gray-500">Professeur de français</p>
+                    </div>
+                </div>
+
+                <!-- Menu navigation -->
+                <nav class="space-y-2">
+                    <a href="dashboard.html" class="flex items-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">
+                        <i data-feather="home" class="w-5 h-5 mr-3"></i>
+                        Tableau de bord
+                    </a>
+                    <a href="upload.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                        <i data-feather="upload" class="w-5 h-5 mr-3"></i>
+                        Analyser une copie
+                    </a>
+                    <a href="rapport.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
+                        Rapports d'analyse
+                    </a>
+                    <a href="fiches.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                        <i data-feather="bookmark" class="w-5 h-5 mr-3"></i>
+                        Fiches de révision
+                    </a>
+                    <a href="exercices.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                        <i data-feather="edit-3" class="w-5 h-5 mr-3"></i>
+                        Exercices ciblés
+                    </a>
+                    <div class="border-t border-gray-200 my-4"></div>
+                    <a href="ethique.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                        <i data-feather="shield" class="w-5 h-5 mr-3"></i>
+                        Éthique & confidentialité
+                    </a>
+                </nav>
+
+                <!-- Élèves récents -->
+                <div class="mt-6">
+                    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Élèves récents</h3>
+                    <div class="space-y-2">
+                        <a href="eleve.html" class="flex items-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-semibold mr-3">
+                                LD
+                            </div>
+                            Lucas Dubois
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                            <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-semibold mr-3">
+                                SM
+                            </div>
+                            Sarah Martin
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
+                            <div class="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-semibold mr-3">
+                                AD
+                            </div>
+                            Antoine Durand
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="flex-1 ml-64 p-8">
+            <div class="max-w-6xl mx-auto">
+                <!-- En-tête du profil élève -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold mr-6">
+                                LD
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-900">Lucas Dubois</h1>
+                                <p class="text-gray-600">Classe de 5e • Élève depuis septembre 2023</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        <i data-feather="trending-up" class="w-4 h-4 mr-1"></i>
+                                        En progression
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">Dernière analyse</p>
+                            <p class="text-lg font-semibold text-gray-900">28 juin 2024</p>
+                            <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i data-feather="message-circle" class="w-4 h-4 inline mr-2"></i>
+                                Contacter les parents
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistiques rapides -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="target" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Moyenne générale</p>
+                                <p class="text-2xl font-bold text-gray-900">13.5/20</p>
+                                <p class="text-xs text-green-600">+1.2 vs période précédente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="file-text" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Copies analysées</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                                <p class="text-xs text-gray-600">Depuis septembre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="check-circle" class="w-6 h-6 text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Réussite exercices IA</p>
+                                <p class="text-2xl font-bold text-gray-900">78%</p>
+                                <p class="text-xs text-green-600">+15% ce trimestre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="clock" class="w-6 h-6 text-orange-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-500">Temps moyen</p>
+                                <p class="text-2xl font-bold text-gray-900">45min</p>
+                                <p class="text-xs text-gray-600">Par devoir</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphique d'évolution et Actions rapides -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Graphique d'évolution -->
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Évolution des performances</h3>
+                        <div class="chart-container">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Actions rapides -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Actions rapides</h3>
+                        <div class="space-y-3">
+                            <button class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center">
+                                <i data-feather="bookmark" class="w-5 h-5 mr-3"></i>
+                                Créer une fiche de révision
+                            </button>
+                            <button class="w-full bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition duration-200 flex items-center">
+                                <i data-feather="edit-3" class="w-5 h-5 mr-3"></i>
+                                Générer un exercice
+                            </button>
+                            <button class="w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition duration-200 flex items-center">
+                                <i data-feather="download" class="w-5 h-5 mr-3"></i>
+                                Exporter le dossier
+                            </button>
+                            <button class="w-full bg-orange-600 text-white px-4 py-3 rounded-lg hover:bg-orange-700 transition duration-200 flex items-center">
+                                <i data-feather="send" class="w-5 h-5 mr-3"></i>
+                                Rapport aux parents
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historique des devoirs -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Historique des devoirs analysés</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="border-b border-gray-200">
+                                    <th class="text-left py-3 px-4 font-medium text-gray-500">Date</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-500">Devoir</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-500">Note</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-500">Supports générés</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-500">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 text-sm text-gray-900">28 juin 2024</td>
+                                    <td class="py-3 px-4">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Mon voyage imaginaire</p>
+                                            <p class="text-xs text-gray-500">Rédaction • Expression écrite</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            14/20
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex space-x-2">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                                <i data-feather="bookmark" class="w-3 h-3 mr-1"></i>
+                                                Fiche
+                                            </span>
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                                <i data-feather="edit-3" class="w-3 h-3 mr-1"></i>
+                                                Exercices
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium" onclick="window.location.href='rapport.html'">
+                                            Voir le rapport
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 text-sm text-gray-900">15 juin 2024</td>
+                                    <td class="py-3 px-4">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Analyse de "L'Avare"</p>
+                                            <p class="text-xs text-gray-500">Dissertation • Molière</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            12/20
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex space-x-2">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                                <i data-feather="bookmark" class="w-3 h-3 mr-1"></i>
+                                                Fiche
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                            Voir le rapport
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 text-sm text-gray-900">3 juin 2024</td>
+                                    <td class="py-3 px-4">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Dictée + Questions</p>
+                                            <p class="text-xs text-gray-500">Orthographe • Compréhension</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                            9/20
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex space-x-2">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                                                <i data-feather="edit-3" class="w-3 h-3 mr-1"></i>
+                                                Exercices
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                            Voir le rapport
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 text-sm text-gray-900">20 mai 2024</td>
+                                    <td class="py-3 px-4">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Portrait de personnage</p>
+                                            <p class="text-xs text-gray-500">Rédaction • Description</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            15/20
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex space-x-2">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                                <i data-feather="bookmark" class="w-3 h-3 mr-1"></i>
+                                                Fiche
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                            Voir le rapport
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Fiches et exercices générés -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Fiches de révision -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Fiches de révision générées</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i data-feather="bookmark" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Vocabulaire du voyage</p>
+                                        <p class="text-xs text-gray-500">28 juin 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800" onclick="window.location.href='fiches.html'">
+                                        <i data-feather="eye" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i data-feather="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i data-feather="bookmark" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Analyse littéraire - Molière</p>
+                                        <p class="text-xs text-gray-500">15 juin 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800">
+                                        <i data-feather="eye" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i data-feather="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i data-feather="bookmark" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Techniques de description</p>
+                                        <p class="text-xs text-gray-500">20 mai 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800">
+                                        <i data-feather="eye" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i data-feather="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercices ciblés -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Exercices ciblés</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i data-feather="edit-3" class="w-5 h-5 text-purple-600 mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Orthographe : homophones</p>
+                                        <p class="text-xs text-gray-500">Réussi à 8/10 • 3 juin 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-purple-600 hover:text-purple-800" onclick="window.location.href='exercices.html'">
+                                        <i data-feather="eye" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i data-feather="refresh-cw" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <i data-feather="edit-3" class="w-5 h-5 text-purple-600 mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Expression écrite créative</p>
+                                        <p class="text-xs text-gray-500">En cours • 28 juin 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="text-purple-600 hover:text-purple-800">
+                                        <i data-feather="eye" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-800">
+                                        <i data-feather="play" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journal pédagogique -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Journal pédagogique</h3>
+                    <div class="relative">
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                        <div class="space-y-6">
+                            <div class="relative flex items-start">
+                                <div class="absolute left-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i data-feather="send" class="w-4 h-4 text-green-600"></i>
+                                </div>
+                                <div class="ml-12">
+                                    <p class="text-sm font-medium text-gray-900">Rapport envoyé aux parents</p>
+                                    <p class="text-xs text-gray-500">29 juin 2024 à 14:30</p>
+                                    <p class="text-sm text-gray-700 mt-1">Bilan positif du devoir "Mon voyage imaginaire" partagé avec M. et Mme Dubois.</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i data-feather="file-text" class="w-4 h-4 text-blue-600"></i>
+                                </div>
+                                <div class="ml-12">
+                                    <p class="text-sm font-medium text-gray-900">Analyse IA terminée</p>
+                                    <p class="text-xs text-gray-500">28 juin 2024 à 16:45</p>
+                                    <p class="text-sm text-gray-700 mt-1">Devoir "Mon voyage imaginaire" analysé. Note : 14/20. Progression remarquable en créativité.</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <i data-feather="check-circle" class="w-4 h-4 text-purple-600"></i>
+                                </div>
+                                <div class="ml-12">
+                                    <p class="text-sm font-medium text-gray-900">Exercice réussi</p>
+                                    <p class="text-xs text-gray-500">27 juin 2024 à 11:20</p>
+                                    <p class="text-sm text-gray-700 mt-1">Exercice d'orthographe sur les homophones réussi à 8/10. Nette amélioration constatée.</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <i data-feather="bookmark" class="w-4 h-4 text-orange-600"></i>
+                                </div>
+                                <div class="ml-12">
+                                    <p class="text-sm font-medium text-gray-900">Fiche de révision créée</p>
+                                    <p class="text-xs text-gray-500">15 juin 2024 à 09:15</p>
+                                    <p class="text-sm text-gray-700 mt-1">Fiche "Analyse littéraire - Molière" générée automatiquement suite à l'analyse du devoir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialisation des icônes Feather
+        feather.replace();
+
+        // Graphique d'évolution des performances
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sept', 'Oct', 'Nov', 'Déc', 'Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
+                datasets: [{
+                    label: 'Moyenne générale',
+                    data: [11.5, 10.8, 11.2, 12.1, 12.8, 12.5, 13.2, 13.8, 14.1, 13.5],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Moyenne classe',
+                    data: [12.2, 12.1, 12.3, 12.5, 12.8, 12.6, 12.9, 13.1, 13.0, 12.8],
+                    borderColor: '#E5E7EB',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 8,
+                        max: 16,
+                        grid: {
+                            color: '#F3F4F6'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#F3F4F6'
+                        }
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 4,
+                        hoverRadius: 6
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

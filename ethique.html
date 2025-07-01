@@ -8,96 +8,114 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+<body class="bg-gray-50 flex h-screen">
+    <!-- Sidebar -->
+    <div class="hidden md:flex md:w-64 md:flex-col">
+        <div class="flex flex-col flex-grow pt-5 bg-white border-r border-gray-200 shadow-sm">
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0 px-6">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <i data-feather="brain" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="ml-3 text-lg font-semibold text-gray-800">EduTrack AI</span>
+            </div>
+            
+            <!-- User Info -->
+            <div class="px-6 mt-6">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            EduTrack AI
-                        </h1>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
-                    <a href="dashboard.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Tableau de bord</a>
-                    <a href="upload.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Analyser</a>
-                    <a href="ethique.html" class="text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-blue-600">Éthique</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-900">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-                <a href="index.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Accueil</a>
-                <a href="dashboard.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Tableau de bord</a>
-                <a href="upload.html" class="text-gray-500 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Analyser</a>
-                <a href="ethique.html" class="text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Éthique</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="flex min-h-screen pt-16">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-lg fixed left-0 top-16 h-full overflow-y-auto">
-            <div class="p-6">
-                <!-- Profil utilisateur -->
-                <div class="flex items-center mb-6">
-                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                        ML
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i data-feather="user" class="w-6 h-6 text-blue-600"></i>
                     </div>
                     <div class="ml-3">
-                        <p class="text-sm font-medium text-gray-900">M. Lefèvre</p>
-                        <p class="text-xs text-gray-500">Professeur de français</p>
+                        <p class="text-sm font-medium text-gray-800">M. Lefèvre</p>
+                        <p class="text-xs text-gray-500">Professeur de Français</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="mt-8 flex-1">
+                <div class="px-3 space-y-1">
+                    <a href="dashboard.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="layout" class="mr-3 w-5 h-5"></i>
+                        Tableau de bord
+                    </a>
+                    <a href="eleve.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="users" class="mr-3 w-5 h-5"></i>
+                        Mes élèves
+                    </a>
+                    <a href="upload.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="upload" class="mr-3 w-5 h-5"></i>
+                        Analyser une copie
+                    </a>
+                    <a href="rapport.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="file-text" class="mr-3 w-5 h-5"></i>
+                        Rapports
+                    </a>
+                    <a href="comparaison.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="bar-chart-2" class="mr-3 w-5 h-5"></i>
+                        Statistiques
+                    </a>
+                    <a href="prevision.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <i data-feather="trending-up" class="mr-3 w-5 h-5"></i>
+                        Prévisions IA
+                    </a>
+                </div>
+                
+                <!-- Divider -->
+                <div class="mt-8 pt-6 border-t border-gray-200 px-3">
+                    <div class="space-y-1">
+                        <a href="fiches.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="bookmark" class="mr-3 w-5 h-5"></i>
+                            Fiches de révision
+                        </a>
+                        <a href="exercices.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="edit-3" class="mr-3 w-5 h-5"></i>
+                            Exercices générés
+                        </a>
+                        <a href="parents.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="mail" class="mr-3 w-5 h-5"></i>
+                            Rapports parents
+                        </a>
                     </div>
                 </div>
 
-                <!-- Menu navigation -->
-                <nav class="space-y-2">
-                    <a href="dashboard.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
-                        <i data-feather="home" class="w-5 h-5 mr-3"></i>
-                        Tableau de bord
-                    </a>
-                    <a href="upload.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
-                        <i data-feather="upload" class="w-5 h-5 mr-3"></i>
-                        Analyser une copie
-                    </a>
-                    <a href="rapport.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
-                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
-                        Rapports d'analyse
-                    </a>
-                    <a href="fiches.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
-                        <i data-feather="bookmark" class="w-5 h-5 mr-3"></i>
-                        Fiches de révision
-                    </a>
-                    <a href="exercices.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-50">
-                        <i data-feather="edit-3" class="w-5 h-5 mr-3"></i>
-                        Exercices ciblés
-                    </a>
-                    <div class="border-t border-gray-200 my-4"></div>
-                    <a href="ethique.html" class="flex items-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">
-                        <i data-feather="shield" class="w-5 h-5 mr-3"></i>
-                        Éthique & confidentialité
-                    </a>
-                </nav>
-            </div>
-        </aside>
-
-        <!-- Contenu principal -->
-        <main class="flex-1 ml-64 p-8">
-            <div class="max-w-4xl mx-auto">
-                <!-- En-tête -->
-                <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Éthique & confidentialité</h1>
-                    <p class="text-lg text-gray-600">Nos engagements pour une IA éducative responsable et transparente</p>
+                <!-- Bottom Section -->
+                <div class="mt-auto pb-4 px-3">
+                    <div class="space-y-1">
+                        <a href="ethique.html" class="bg-blue-50 text-blue-700 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="shield" class="mr-3 w-5 h-5"></i>
+                            Éthique & RGPD
+                        </a>
+                        <a href="roadmap.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="map" class="mr-3 w-5 h-5"></i>
+                            Roadmap
+                        </a>
+                        <a href="index.html" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                            <i data-feather="home" class="mr-3 w-5 h-5"></i>
+                            Retour accueil
+                        </a>
+                    </div>
                 </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-auto">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Éthique & confidentialité</h1>
+                    <p class="text-gray-600 mt-1">Nos engagements pour une IA éducative responsable et transparente</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="p-6">
+            <div class="max-w-4xl mx-auto">
 
                 <!-- Section RGPD & respect des données -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
